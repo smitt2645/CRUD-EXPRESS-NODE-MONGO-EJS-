@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Example</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/student/css/bootstrap.css">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="/student/css/all.css">
+    
+    <style>
+        /* Custom CSS for layout adjustments */
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <!-- Form for adding data -->
+        <div class="col-md-6">
+            <h3>Add Data</h3>
+            <form action="/student" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="name">age:</label>
+                    <input type="text" class="form-control" id="name" name="age">
+                </div>
+                <div class="form-group">
+                    <label for="fees">Fees:</label>
+                    <input type="text" class="form-control" id="fees" name="fees">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+
+        <!-- Table for displaying data -->
+        <div class="col-md-6">
+            <h3>Data Table</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>age</th>
+                        <th>Fees</th>
+                        <th>Actions</th>
+                    
+                    </tr>
+                    <% response.forEach(function(item) { %>
+                        <tr>
+                            <td><%= item.id %></td>
+                            <td><%= item.name %></td>
+                            <td><%= item.age %></td>
+                            <td><%= item.fees %></td>
+                            <td>
+                                <i class="fas fa-edit"></i> <!-- Edit Icon -->
+                                <i class="fas fa-trash-alt"></i> <!-- Delete Icon -->
+                            </td>
+                        </tr>
+                    <% }); %>
+                    
+                    
+                
+                </thead>
+                <tbody>
+                    <!-- Table rows will be populated dynamically with data from MongoDB -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (optional, if you need JavaScript functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="student/js/bootstrap.js"></script>
+<script src="student/js/all.js"></script>
+</body>
+</html>
