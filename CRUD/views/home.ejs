@@ -61,8 +61,22 @@
                             <td><%= item.age %></td>
                             <td><%= item.fees %></td>
                             <td>
-                                <i class="fas fa-edit"></i> <!-- Edit Icon -->
-                                <i class="fas fa-trash-alt"></i> <!-- Delete Icon -->
+                                <form action="/student/edit/<%= item.id %>" method="get">
+                                
+                        
+                                <button type="submit">
+                                    <i class="fas fa-edit"></i> 
+                                </button>
+                              
+                            </form>
+
+                            <form action="/student/delete/<%= item.id %>" method="post">
+                              <button type="submit">
+
+                                  <i class="fas fa-trash-alt"></i> <!-- Delete Icon -->
+                              </button>  
+                                
+                            </form>
                             </td>
                         </tr>
                     <% }); %>

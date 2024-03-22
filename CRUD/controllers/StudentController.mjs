@@ -12,9 +12,17 @@ class StudentController {
        }
     }
 
-    static editDoc = async (req,res)=>{
-        res.render('edit');
-    } 
+    static editDoc = async (req, res) => {
+        try {
+            const id = req.params.id; 
+            const response = await StudentModel.findById(id);
+            console.log(id);
+            console.log(response);
+            res.render('edit', { data: response });
+        } catch (error) {
+            console.log(error, "edit doc error!");
+        }
+    }
 
     static createDoc = async (req,res)=>{
       const {name,age,fees} = req.body; 
@@ -34,11 +42,31 @@ class StudentController {
     } 
     
 
-    static updateDocById = async (req,res)=>{
-        res.redirect('/student')
-    } 
+    static updateDocById = async (req, res) => {
+        try {
+            const id = req.params.id; // Corrected access to ID parameter
+            console.log(id);
+            console.log(req.body);
+            const response = await StudentModel.findByIdAndUpdate(id,req.body);
+            console.log(response);
+            res.redirect('/student');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     static deleteDocById = async (req,res)=>{
-        res.redirect('/student')
+        try {
+            const id = req.params.id; // Corrected access to ID parameter
+            console.log(id);
+            console.log(req.body);
+        const response = await StudentModel.findByIdAndDelete(id);
+
+        console.log(response,"deleted");       
+        res.redirect("/student");
+        } catch (error) {
+            console.log(error,"deleteDocById error!");
+        }
     } 
 
 

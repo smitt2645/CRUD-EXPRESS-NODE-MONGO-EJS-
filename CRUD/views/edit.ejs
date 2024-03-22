@@ -6,7 +6,7 @@
     <title>CRUD Example</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/student/css/bootstrap.css">
-    <!-- font awsome -->
+    <!-- font awesome -->
     <link rel="stylesheet" href="/student/css/all.css">
     
     <style>
@@ -20,26 +20,29 @@
 
 <div class="container">
     <div class="row">
-        <!-- Form for adding data -->
+        <!-- Form for updating data -->
         <div class="col-md-6">
             <h3>Update DATA</h3>
-            <form method="post">
+            <form method="post" action="/student/update/<%= data.id %>">
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="<%= data.name %>">
                 </div>
                 <div class="form-group">
-                    <label for="name">age:</label>
-                    <input type="text" class="form-control" id="name" name="age">
+                    <label for="age">Age:</label>
+                    <input type="text" class="form-control" id="age" name="age" value="<%= data.age %>">
                 </div>
                 <div class="form-group">
                     <label for="fees">Fees:</label>
-                    <input type="text" class="form-control" id="fees" name="fees">
+                    <input type="text" class="form-control" id="fees" name="fees" value="<%= data.fees %>">
                 </div>
                 <br>
+
                 <button type="submit" class="btn btn-primary">Update</button>
-                <button type="button" class="btn btn-primary">Go back to home</button>
-                
+            </form>
+
+            <form action="/student" method="get">
+                <button type="submit" class="btn btn-primary">Go back to home</button>
             </form>
         </div>
         
