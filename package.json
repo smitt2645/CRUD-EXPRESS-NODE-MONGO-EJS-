@@ -5,6 +5,7 @@
   "main": "./CRUD/app.mjs",
   "type": "module",
   "scripts": {
+    "start": "node ./CRUD/app.mjs",
     "dev": "nodemon app.mjs"
   },
   "repository": {

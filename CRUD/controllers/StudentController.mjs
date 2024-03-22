@@ -5,8 +5,11 @@ class StudentController {
 
        try {
         const response = await StudentModel.find()
+        const option = {
+            title:"home"
+        }
         // const {name,age,fees} = req.body;
-        res.render('home',{response});
+        res.render('home',{response,option});
        } catch (error) {
         console.log(error,"GetAllData Eorror!")
        }
@@ -14,11 +17,14 @@ class StudentController {
 
     static editDoc = async (req, res) => {
         try {
+            const option = {
+                title:"home"
+            }
             const id = req.params.id; 
             const response = await StudentModel.findById(id);
             console.log(id);
             console.log(response);
-            res.render('edit', { data: response });
+            res.render('edit', { data: response,opt:option });
         } catch (error) {
             console.log(error, "edit doc error!");
         }
